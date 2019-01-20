@@ -5,6 +5,10 @@
     <class>scs.ScsAdl</class>
     <class>scs.ScsSubjectlist</class>
     <class>scs.ScsSa01</class>
+    <class>scs.ScsPersonDetails</class>
+    <class>scs.ScsSa03</class>
+    <class>scs.ScsSa02</class>
+    <class>scs.ScsSa04</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mydb?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

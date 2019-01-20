@@ -10,6 +10,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -20,31 +21,24 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author User
  */
 @Entity
-@Table(name = "scs_sa01")
+@Table(name = "scs_sa03")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "ScsSa01.findAll", query = "SELECT s FROM ScsSa01 s"),
-    @NamedQuery(name = "ScsSa01.findBySubject", query = "SELECT s FROM ScsSa01 s WHERE s.subject = :subject"),
-    @NamedQuery(name = "ScsSa01.findByAx", query = "SELECT s FROM ScsSa01 s WHERE s.ax = :ax"),
-    @NamedQuery(name = "ScsSa01.findByAy", query = "SELECT s FROM ScsSa01 s WHERE s.ay = :ay"),
-    @NamedQuery(name = "ScsSa01.findByAz", query = "SELECT s FROM ScsSa01 s WHERE s.az = :az"),
-    @NamedQuery(name = "ScsSa01.findByGx", query = "SELECT s FROM ScsSa01 s WHERE s.gx = :gx"),
-    @NamedQuery(name = "ScsSa01.findByGy", query = "SELECT s FROM ScsSa01 s WHERE s.gy = :gy"),
-    @NamedQuery(name = "ScsSa01.findByGz", query = "SELECT s FROM ScsSa01 s WHERE s.gz = :gz"),
-    @NamedQuery(name = "ScsSa01.findByAx1", query = "SELECT s FROM ScsSa01 s WHERE s.ax1 = :ax1"),
-    @NamedQuery(name = "ScsSa01.findByAy1", query = "SELECT s FROM ScsSa01 s WHERE s.ay1 = :ay1"),
-    @NamedQuery(name = "ScsSa01.findByAz1", query = "SELECT s FROM ScsSa01 s WHERE s.az1 = :az1"),
-    @NamedQuery(name = "ScsSa01.findByAdl", query = "SELECT s FROM ScsSa01 s WHERE s.adl = :adl"),
-    @NamedQuery(name = "ScsSa01.findByPrimaryId", query = "SELECT s FROM ScsSa01 s WHERE s.primaryId = :primaryId")})
-public class ScsSa01 implements Serializable {
-
-    @Id
-    @Basic(optional = false)
-    @Column(name = "PrimaryKey")
-    private Integer primaryKey;
+    @NamedQuery(name = "ScsSa03.findAll", query = "SELECT s FROM ScsSa03 s"),
+    @NamedQuery(name = "ScsSa03.findByAx", query = "SELECT s FROM ScsSa03 s WHERE s.ax = :ax"),
+    @NamedQuery(name = "ScsSa03.findByAy", query = "SELECT s FROM ScsSa03 s WHERE s.ay = :ay"),
+    @NamedQuery(name = "ScsSa03.findByAz", query = "SELECT s FROM ScsSa03 s WHERE s.az = :az"),
+    @NamedQuery(name = "ScsSa03.findByGx", query = "SELECT s FROM ScsSa03 s WHERE s.gx = :gx"),
+    @NamedQuery(name = "ScsSa03.findByGy", query = "SELECT s FROM ScsSa03 s WHERE s.gy = :gy"),
+    @NamedQuery(name = "ScsSa03.findByGz", query = "SELECT s FROM ScsSa03 s WHERE s.gz = :gz"),
+    @NamedQuery(name = "ScsSa03.findByAx1", query = "SELECT s FROM ScsSa03 s WHERE s.ax1 = :ax1"),
+    @NamedQuery(name = "ScsSa03.findByAy1", query = "SELECT s FROM ScsSa03 s WHERE s.ay1 = :ay1"),
+    @NamedQuery(name = "ScsSa03.findByAz1", query = "SELECT s FROM ScsSa03 s WHERE s.az1 = :az1"),
+    @NamedQuery(name = "ScsSa03.findByPrimaryKey", query = "SELECT s FROM ScsSa03 s WHERE s.primaryKey = :primaryKey")})
+public class ScsSa03 implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Basic(optional = false)
+    @Lob
     @Column(name = "Subject")
     private String subject;
     @Column(name = "Ax")
@@ -65,23 +59,19 @@ public class ScsSa01 implements Serializable {
     private Integer ay1;
     @Column(name = "Az1")
     private Integer az1;
+    @Lob
     @Column(name = "Adl")
     private String adl;
     @Id
     @Basic(optional = false)
-    @Column(name = "PrimaryId")
-    private Integer primaryId;
+    @Column(name = "PrimaryKey")
+    private Integer primaryKey;
 
-    public ScsSa01() {
+    public ScsSa03() {
     }
 
-    public ScsSa01(Integer primaryId) {
-        this.primaryId = primaryId;
-    }
-
-    public ScsSa01(Integer primaryId, String subject) {
-        this.primaryId = primaryId;
-        this.subject = subject;
+    public ScsSa03(Integer primaryKey) {
+        this.primaryKey = primaryKey;
     }
 
     public String getSubject() {
@@ -172,43 +162,6 @@ public class ScsSa01 implements Serializable {
         this.adl = adl;
     }
 
-    public Integer getPrimaryId() {
-        return primaryId;
-    }
-
-    public void setPrimaryId(Integer primaryId) {
-        this.primaryId = primaryId;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (primaryId != null ? primaryId.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ScsSa01)) {
-            return false;
-        }
-        ScsSa01 other = (ScsSa01) object;
-        if ((this.primaryId == null && other.primaryId != null) || (this.primaryId != null && !this.primaryId.equals(other.primaryId))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "scs.ScsSa01[ primaryId=" + primaryId + " ]";
-    }
-
-    public ScsSa01(Integer primaryKey) {
-        this.primaryKey = primaryKey;
-    }
-
     public Integer getPrimaryKey() {
         return primaryKey;
     }
@@ -227,10 +180,10 @@ public class ScsSa01 implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ScsSa01)) {
+        if (!(object instanceof ScsSa03)) {
             return false;
         }
-        ScsSa01 other = (ScsSa01) object;
+        ScsSa03 other = (ScsSa03) object;
         if ((this.primaryKey == null && other.primaryKey != null) || (this.primaryKey != null && !this.primaryKey.equals(other.primaryKey))) {
             return false;
         }
@@ -239,7 +192,7 @@ public class ScsSa01 implements Serializable {
 
     @Override
     public String toString() {
-        return "scs.ScsSa01[ primaryKey=" + primaryKey + " ]";
+        return "scs.ScsSa03[ primaryKey=" + primaryKey + " ]";
     }
     
 }
